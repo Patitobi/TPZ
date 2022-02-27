@@ -2,27 +2,22 @@ from time import sleep
 import RPi.GPIO as GPIO
 GPIO.setmode(GPIO.BCM)
 
-GPIO.setup(23, GPIO.OUT)
+GPIO.setup(14, GPIO.OUT)
+while True:
+    print('Ein') 
+    GPIO.output(14,GPIO.HIGH)
 
-i = 1
-while i >= 1:
-    print(i)
-    
-    GPIO.output(23,GPIO.HIGH)
-    
     sleep(5)
+    print('Aus')
+
+    GPIO.output(14, GPIO.LOW)
     
-    GPIO.output(23, GPIO.LOW)
-    
-    sleep(2)
-    
-    i += 1
-    try:
-        x = input()
-        print ('Try using KeyboardInterrupt')
-    except KeyboardInterrupt(f):
-        print ('KeyboardInterrupt exception is caught')
-    else:
-        print ('Valla')
+    print('weiter = 1 stop = 0')
+    eingabe = int(input())
+    if eingabe == 0 :
+        break
+        print('beenden')
     
 GPIO.cleanup()
+    
+
