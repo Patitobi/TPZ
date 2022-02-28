@@ -25,16 +25,16 @@ while True:
         if (event.type==pygame.KEYDOWN):
             if event.key == pygame.K_LEFT or event.key == ord('a'):
                 print('LEFT DOWN')
-                GPIO.output(engine_right, 1)
+                GPIO.output(engine_right, 0)
                 sleep(0.1)
             if event.key == pygame.K_RIGHT or event.key == ord('d'):
                 print('RIGHT DOWN')
-                GPIO.output(engine_left, 1)
+                GPIO.output(engine_left, 0)
                 sleep(0.1)
             if event.key == pygame.K_UP or event.key == ord('w'):
                 print('UP DOWN')
-                GPIO.output(engine_left, 1)
-                GPIO.output(engine_right, 1)
+                GPIO.output(engine_left, 0)
+                GPIO.output(engine_right, 0)
                 sleep(0.1)
             if event.key == pygame.K_DOWN or event.key == ord('s'):
                 print('DOWN DOWN')
@@ -47,16 +47,16 @@ while True:
         if (event.type==pygame.KEYUP):
             if event.key == pygame.K_LEFT or event.key == ord('a'):
                 print('LEFT UP')
-                GPIO.output(engine_right, 0)
+                GPIO.output(engine_right, 1)
                 sleep(0.1)
             if event.key == pygame.K_RIGHT or event.key == ord('d'):
                 print('RIGHT UP')
-                GPIO.output(engine_left, 0)
+                GPIO.output(engine_left, 1)
                 sleep(0.1)
             if event.key == pygame.K_UP or event.key == ord('w'):
                 print('UP UP')
-                GPIO.output(engine_left, 0)
-                GPIO.output(engine_right, 0)
+                GPIO.output(engine_left, 1)
+                GPIO.output(engine_right, 1)
                 sleep(0.1)
             if event.key == pygame.K_DOWN or event.key == ord('s'):
                 print('DOWN UP')
