@@ -1,3 +1,4 @@
+from cgitb import text
 from time import sleep
 from turtle import color
 #import RPi.GPIO as GPIO
@@ -24,6 +25,19 @@ PfeilRechtsimg = pygame.image.load('PfeilRechts.png') #PfeilRechts
 PfeilLinksimg = pygame.image.load('PfeilLinks.png') #PfeilLinks
 PfeilBackimg = pygame.image.load('PfeilBack.png') #PfeilBack
 
+def ControllerConnect(): #Konzept für einen Controller Connect waiting Screen
+    font = pygame.font.Font('freesansbold.ttf', 20) #Schriftart und Schriftgröße
+    Controllertext = font.render('Verbinden sie einen Controller...', True,)#Schrift einfügen
+    Controller = 0
+    while Controller == 0:
+        screen.blit(Controllertext)
+        sleep(2)
+        #if #Controller Connection == true:
+        #   Controller += 1
+
+
+
+
 def Panzernull():
     screen.fill(color)
     screen.blit(Panzerneutralimg, (screenwidth / 2 - 128 / 2, screenheight / 2 - 191 / 2)) #Panzer wenn keine Taste gedrückt wird
@@ -49,6 +63,8 @@ def PanzerBack():
     screen.blit(Panzerneutralimg, (screenwidth / 2 - 128 / 2, screenheight / 2 - 191 / 2))
     screen.blit(PfeilBackimg, (screenwidth / 2 - 68 / 2, screenheight / 2 - 112 / 2 + 200))
 
+#Auf Controller Warten
+#ControllerConnect()
 #Panzer auf Null(Gerade) stellen bei Start
 Panzernull()
 pygame.display.update()
