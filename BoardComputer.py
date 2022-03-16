@@ -1,7 +1,7 @@
 from cgitb import text
 from time import sleep
 from turtle import color
-#import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO
 import pygame
 from pygame.locals import *
 
@@ -70,11 +70,11 @@ Panzernull()
 pygame.display.update()
 
 while True:
-    #GPIO.setmode(GPIO.BCM)
-    #engine_left = 14
-    #engine_right = 15
-    #GPIO.setup(engine_left, GPIO.OUT)
-    #GPIO.setup(engine_right, GPIO.OUT)
+    GPIO.setmode(GPIO.BCM)
+    engine_left = 14
+    engine_right = 15
+    GPIO.setup(engine_left, GPIO.OUT)
+    GPIO.setup(engine_right, GPIO.OUT)
 
     
     
@@ -89,20 +89,20 @@ while True:
         if (event.type==pygame.KEYDOWN):
             if event.key == pygame.K_LEFT or event.key == ord('a'):
                 print('LEFT DOWN')
-                #GPIO.output(engine_right, 0)
+                GPIO.output(engine_right, 0)
                 PanzerLinks()
                 pygame.display.update() # Panzer wird im Board Computer nach links ausgerichtet
                 
             if event.key == pygame.K_RIGHT or event.key == ord('d'):
                 print('RIGHT DOWN')
-                #GPIO.output(engine_left, 0)
+                GPIO.output(engine_left, 0)
                 PanzerRechts()
                 pygame.display.update() # Panzer wird im Board Computer nach rechts ausgerichtet
                 
             if event.key == pygame.K_UP or event.key == ord('w'):
                 print('UP DOWN')
-                #GPIO.output(engine_left, 0)
-                #GPIO.output(engine_right, 0)
+                GPIO.output(engine_left, 0)
+                GPIO.output(engine_right, 0)
                 Panzerneutral()
                 pygame.display.update() # Panzer wird im Bord Computer Geradeaus gerichtet
                 
@@ -112,25 +112,25 @@ while True:
                 pygame.display.update() # Panzer wird im Bord Computer Geradeaus gerichtet(Pfeil zeigt nach hinten)
 
             if event.key == pygame.K_ESCAPE:
-                #GPIO.cleanup()
+                GPIO.cleanup()
                 print('ENDE')
                 exit()
 
         if (event.type==pygame.KEYUP):
             if event.key == pygame.K_LEFT or event.key == ord('a'):
                 print('LEFT UP')
-                #GPIO.output(engine_right, 1)
+                GPIO.output(engine_right, 1)
                 Panzernull()
                 pygame.display.update() # Panzer wird im Bord Computer Geradeaus gerichtet
             if event.key == pygame.K_RIGHT or event.key == ord('d'):
                 print('RIGHT UP')
-                #GPIO.output(engine_left, 1)
+                GPIO.output(engine_left, 1)
                 Panzernull()
                 pygame.display.update() # Panzer wird im Bord Computer Geradeaus gerichtet
             if event.key == pygame.K_UP or event.key == ord('w'):
                 print('UP UP')
-                #GPIO.output(engine_left, 1)
-                #GPIO.output(engine_right, 1)
+                GPIO.output(engine_left, 1)
+                GPIO.output(engine_right, 1)
                 Panzernull()
                 pygame.display.update() # Panzer wird im Bord Computer Geradeaus gerichtet
             if event.key == pygame.K_DOWN or event.key == ord('s'):
