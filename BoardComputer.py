@@ -19,8 +19,7 @@ pygame.display.set_caption('Board Computer')
 Panzerneutralimg = pygame.image.load('PanzerNeutral.png') #Bild des Panzers in neutraler ausrichtung
 PanzerRechtsimg = pygame.image.load('PanzerRechts.png') #Bild des Panzers in rechter ausrichtung
 PanzerLinksimg = pygame.image.load('PanzerLinks.png') #Bild des Panzers in linker ausrichtung
-
-Pfeilneutralimg = pygame.image.load('Pfeilneutral.png') #Pfeilneutral
+Pfeilneutralimg = pygame.image.load('PfeilNeutral.png') #Pfeilneutral
 PfeilRechtsimg = pygame.image.load('PfeilRechts.png') #PfeilRechts
 PfeilLinksimg = pygame.image.load('PfeilLinks.png') #PfeilLinks
 PfeilBackimg = pygame.image.load('PfeilBack.png') #PfeilBack
