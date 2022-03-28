@@ -1,4 +1,4 @@
-from pyS4Controller.controller import Controller
+from pyPS4Controller.controller import Controller
 while True:
     class MyController(Controller):
     
