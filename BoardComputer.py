@@ -11,9 +11,6 @@ class MyController(Controller):
         Controller.__init__(self, **kwargs)
     def on_x_press(self):
         print('jes')
-        
-controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
-controller.listen(timeout=60)
 
 #Fenster einstellen (Board Computer/ Vogel perspektive auf den Panzer)
 pygame.init()
@@ -37,12 +34,15 @@ PfeilBackimg = pygame.image.load('PfeilBack.png') #PfeilBack
 def ControllerConnect(): #Konzept für einen Controller Connect waiting Screen
     font = pygame.font.Font('freesansbold.ttf', 20) #Schriftart und Schriftgröße
     Controllertext = font.render('Verbinden sie einen Controller...', True,(139,0,0))#Schrift einfügen
-     
+    Connection = False
     while Connection == False:
-        Connection = False
+
         screen.blit(Controllertext,(260,260))
         pygame.display.update()
+        controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
         sleep(5)
+        controller.listen(timeout=60)
+        
         
 
 def Panzernull():
