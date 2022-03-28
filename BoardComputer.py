@@ -4,6 +4,16 @@ from turtle import color
 #import RPi.GPIO as GPIO
 import pygame
 from pygame.locals import *
+from pyPS4Controller.controller import Controller
+
+class MyController(Controller):
+    def __init__(self,**kwargs):
+        Controller.__init__(self, **kwargs)
+    def on_x_press(self):
+        print('jes')
+        
+controller = MyController(interface="/dev/input/js0", connecting_using_ds4drv=False)
+controller.listen(timeout=60)
 
 #Fenster einstellen (Board Computer/ Vogel perspektive auf den Panzer)
 pygame.init()
@@ -27,15 +37,13 @@ PfeilBackimg = pygame.image.load('PfeilBack.png') #PfeilBack
 def ControllerConnect(): #Konzept für einen Controller Connect waiting Screen
     font = pygame.font.Font('freesansbold.ttf', 20) #Schriftart und Schriftgröße
     Controllertext = font.render('Verbinden sie einen Controller...', True,(139,0,0))#Schrift einfügen
-    Controller = 0
-    Connection = False
-    while Controller == 0:
+     
+    while Connection == False:
+        Connection = False
         screen.blit(Controllertext,(260,260))
         pygame.display.update()
         sleep(5)
-        if Connection == True:
-           Controller = 1
-           sleep(2)
+        
 
 def Panzernull():
     screen.fill(color)
@@ -82,10 +90,7 @@ while True:
         if (event.type==pygame.KEYDOWN):
             if event.key == pygame.K_ESCAPE:
                 pygame.quit()
-                main = False
-                
             
-        if (event.type==pygame.KEYDOWN):
             if event.key == pygame.K_LEFT or event.key == ord('a'):
                 print('LEFT DOWN')
                 #GPIO.output(engine_right, 0)
@@ -135,4 +140,4 @@ while True:
             if event.key == pygame.K_DOWN or event.key == ord('s'):
                 print('DOWN UP')
                 Panzernull()
-                pygame.display.update() # Panzer wird im Bord Computer Geradeaus gerichtet
+                pygame.display.update()
