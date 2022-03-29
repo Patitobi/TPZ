@@ -141,3 +141,6 @@ while True:
                 print('DOWN UP')
                 Panzernull()
                 pygame.display.update()
+    """
+    Nicht weiter arbeiten ist nicht aktuel da ich in meinem Pracktikum unter einer 10 meta dicken stahl betong schicht mache und keinen emfang hab
+    """
